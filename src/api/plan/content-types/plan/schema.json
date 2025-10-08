@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "planes",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "planes",
+    "displayName": "Planes"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Precio": {
+      "type": "biginteger"
+    },
+    "Subtitulo": {
+      "type": "string"
+    },
+    "Descripcion": {
+      "type": "text"
+    }
+  }
+}
