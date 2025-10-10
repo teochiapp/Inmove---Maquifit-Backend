@@ -502,6 +502,38 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    variantes: Schema.Attribute.Relation<'oneToMany', 'api::variante.variante'>;
+  };
+}
+
+export interface ApiVarianteVariante extends Struct.CollectionTypeSchema {
+  collectionName: 'variantes';
+  info: {
+    displayName: 'Variante';
+    pluralName: 'variantes';
+    singularName: 'variante';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Color: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::variante.variante'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Stock: Schema.Attribute.Integer;
+    Talla: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1018,6 +1050,7 @@ declare module '@strapi/strapi' {
       'api::categoria.categoria': ApiCategoriaCategoria;
       'api::plan.plan': ApiPlanPlan;
       'api::producto.producto': ApiProductoProducto;
+      'api::variante.variante': ApiVarianteVariante;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

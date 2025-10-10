@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variantes",
+  "info": {
+    "singularName": "variante",
+    "pluralName": "variantes",
+    "displayName": "Variante"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Color": {
+      "type": "string"
+    },
+    "Talla": {
+      "type": "string"
+    },
+    "Stock": {
+      "type": "integer"
+    },
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
