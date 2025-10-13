@@ -39,6 +39,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::variante.variante"
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
