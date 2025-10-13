@@ -32,9 +32,11 @@ ADMIN_JWT_SECRET=genera_un_valor_largo_y_aleatorio_aqui
 TRANSFER_TOKEN_SALT=genera_un_valor_largo_y_aleatorio_aqui
 JWT_SECRET=genera_un_valor_largo_y_aleatorio_aqui
 
-# Base de datos
+# Base de datos (SQLite por defecto - datos se pierden en redeploy)
 DATABASE_CLIENT=sqlite
 DATABASE_FILENAME=.tmp/data.db
+
+# Para producción, usar MySQL o PostgreSQL (ver DATABASE-SETUP.md)
 ```
 
 ### 3. Generar Secrets Seguros
@@ -74,4 +76,8 @@ Después del deploy, verifica:
 ### Error de SSL
 - Espera 5-10 minutos después de configurar el dominio
 - Coolify debe generar el certificado Let's Encrypt automáticamente
+
+## 📚 Documentación Adicional
+
+- **[DATABASE-SETUP.md](./DATABASE-SETUP.md)** - Configuración de bases de datos para producción
 
