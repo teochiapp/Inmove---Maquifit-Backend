@@ -108,3 +108,7 @@ Para preservar archivos subidos:
 - [Coolify Documentation](https://coolify.io/docs)
 - [MySQL2 Driver](https://github.com/sidorares/node-mysql2)
 - [PostgreSQL Driver](https://node-postgres.com/)
+
+
+
+

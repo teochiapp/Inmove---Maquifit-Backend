@@ -442,6 +442,53 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPagoPendientePagoPendiente
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pagos_pendientes';
+  info: {
+    description: 'Almacena datos de pagos antes de ir a MercadoPago';
+    displayName: 'Pago Pendiente';
+    pluralName: 'pagos-pendientes';
+    singularName: 'pago-pendiente';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    client_email: Schema.Attribute.Email & Schema.Attribute.Required;
+    client_name: Schema.Attribute.String & Schema.Attribute.Required;
+    client_phone: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email_sent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    expires_at: Schema.Attribute.DateTime;
+    external_reference: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pago-pendiente.pago-pendiente'
+    > &
+      Schema.Attribute.Private;
+    merchant_order_id: Schema.Attribute.String;
+    payment_id: Schema.Attribute.String;
+    payment_status: Schema.Attribute.Enumeration<
+      ['pending', 'approved', 'rejected', 'cancelled']
+    > &
+      Schema.Attribute.DefaultTo<'pending'>;
+    plan_description: Schema.Attribute.Text;
+    plan_id: Schema.Attribute.Integer & Schema.Attribute.Required;
+    plan_price: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    plan_title: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPlanPlan extends Struct.CollectionTypeSchema {
   collectionName: 'planes';
   info: {
@@ -1052,6 +1099,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::categoria.categoria': ApiCategoriaCategoria;
+      'api::pago-pendiente.pago-pendiente': ApiPagoPendientePagoPendiente;
       'api::plan.plan': ApiPlanPlan;
       'api::producto.producto': ApiProductoProducto;
       'api::variante.variante': ApiVarianteVariante;

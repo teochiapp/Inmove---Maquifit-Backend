@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pagos_pendientes",
+  "info": {
+    "singularName": "pago-pendiente",
+    "pluralName": "pagos-pendientes",
+    "displayName": "Pago Pendiente",
+    "description": "Almacena datos de pagos antes de ir a MercadoPago"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "external_reference": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "client_name": {
+      "type": "string",
+      "required": true
+    },
+    "client_email": {
+      "type": "email",
+      "required": true
+    },
+    "client_phone": {
+      "type": "string",
+      "required": true
+    },
+    "plan_id": {
+      "type": "integer",
+      "required": true
+    },
+    "plan_title": {
+      "type": "string",
+      "required": true
+    },
+    "plan_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "plan_description": {
+      "type": "text"
+    },
+    "payment_id": {
+      "type": "string"
+    },
+    "payment_status": {
+      "type": "enumeration",
+      "enum": ["pending", "approved", "rejected", "cancelled"],
+      "default": "pending"
+    },
+    "email_sent": {
+      "type": "boolean",
+      "default": false
+    },
+    "merchant_order_id": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "datetime"
+    }
+  }
+}
+
