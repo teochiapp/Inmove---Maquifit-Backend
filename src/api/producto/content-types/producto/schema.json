@@ -49,6 +49,9 @@
         "videos",
         "audios"
       ]
+    },
+    "GuiaTalles": {
+      "type": "text"
     }
   }
 }

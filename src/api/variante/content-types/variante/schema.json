@@ -4,21 +4,28 @@
   "info": {
     "singularName": "variante",
     "pluralName": "variantes",
-    "displayName": "Variante"
+    "displayName": "Variante",
+    "mainField": "Nombre"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Color": {
+    "Nombre": {
       "type": "string"
+    },
+    "Color": {
+      "type": "string",
+      "required": true
     },
     "Talla": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Stock": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "Imagen": {
       "type": "media",
@@ -29,6 +36,12 @@
         "videos",
         "audios"
       ]
+    },
+    "producto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::producto.producto",
+      "inversedBy": "variantes"
     }
   }
 }
