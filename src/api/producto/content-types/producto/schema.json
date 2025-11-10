@@ -38,7 +38,8 @@
     "variantes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::variante.variante"
+      "target": "api::variante.variante",
+      "targetAttribute": "Nombre"
     },
     "Galeria": {
       "type": "media",
