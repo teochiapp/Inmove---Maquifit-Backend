@@ -8,7 +8,7 @@
     "mainField": "Nombre"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
