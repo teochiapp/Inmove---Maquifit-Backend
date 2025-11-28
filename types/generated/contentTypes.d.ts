@@ -624,7 +624,7 @@ export interface ApiVarianteVariante extends Struct.CollectionTypeSchema {
     singularName: 'variante';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     Color: Schema.Attribute.String & Schema.Attribute.Required;
