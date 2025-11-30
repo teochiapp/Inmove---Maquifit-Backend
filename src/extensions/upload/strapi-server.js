@@ -60,6 +60,10 @@ const normalizeImageOrientation = async (file) => {
 
   const sizeInBytes = result.size ?? 0;
 
+  strapi.log.info(
+    `[upload] normalizeImageOrientation rotated ${file.name || file.hash}${file.ext || ''} from EXIF orientation ${metadata.orientation}`
+  );
+
   file.filepath = orientedFilePath;
   file.getStream = () => fse.createReadStream(orientedFilePath);
   file.size = bytesToKbytes(sizeInBytes);
