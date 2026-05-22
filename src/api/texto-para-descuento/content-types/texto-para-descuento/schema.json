@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "texto_para_descuentos",
+  "info": {
+    "singularName": "texto-para-descuento",
+    "pluralName": "texto-para-descuentos",
+    "displayName": "Texto para Descuento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PorcentajeDescuento": {
+      "type": "integer"
+    },
+    "TextoAdicional": {
+      "type": "string"
+    }
+  }
+}

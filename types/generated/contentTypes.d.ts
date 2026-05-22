@@ -615,6 +615,66 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTextoParaCuotaTextoParaCuota
+  extends Struct.SingleTypeSchema {
+  collectionName: 'texto_para_cuotas';
+  info: {
+    displayName: 'Texto para Cuotas';
+    pluralName: 'texto-para-cuotas';
+    singularName: 'texto-para-cuota';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CantidadCuotas: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::texto-para-cuota.texto-para-cuota'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TextoAdicional: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTextoParaDescuentoTextoParaDescuento
+  extends Struct.SingleTypeSchema {
+  collectionName: 'texto_para_descuentos';
+  info: {
+    displayName: 'Texto para Descuento';
+    pluralName: 'texto-para-descuentos';
+    singularName: 'texto-para-descuento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::texto-para-descuento.texto-para-descuento'
+    > &
+      Schema.Attribute.Private;
+    PorcentajeDescuento: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    TextoAdicional: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVarianteVariante extends Struct.CollectionTypeSchema {
   collectionName: 'variantes';
   info: {
@@ -1164,6 +1224,8 @@ declare module '@strapi/strapi' {
       'api::pago-pendiente.pago-pendiente': ApiPagoPendientePagoPendiente;
       'api::plan.plan': ApiPlanPlan;
       'api::producto.producto': ApiProductoProducto;
+      'api::texto-para-cuota.texto-para-cuota': ApiTextoParaCuotaTextoParaCuota;
+      'api::texto-para-descuento.texto-para-descuento': ApiTextoParaDescuentoTextoParaDescuento;
       'api::variante.variante': ApiVarianteVariante;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

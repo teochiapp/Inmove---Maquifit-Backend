@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "texto_para_cuotas",
+  "info": {
+    "singularName": "texto-para-cuota",
+    "pluralName": "texto-para-cuotas",
+    "displayName": "Texto para Cuotas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CantidadCuotas": {
+      "type": "integer"
+    },
+    "TextoAdicional": {
+      "type": "string"
+    }
+  }
+}
